@@ -113,7 +113,61 @@ def q9(m,n):
         elif summ-m==0:
             print("Y")
 
-q9(23,25)
+#q9(7,32)
+def q91(m,n):
+    print m/n
+    sum=0.0
+    i=2.0
+    z=[]
+    while sum!=m/n:
+        if (m/n-sum)>(1.0/i):
+            z.append(i)
+            sum+=1/i
+        i+=1
+    return z
+#print q91(17.0,32.0)
+
+
+
+def mergeSort(alist,s):
+    if len(alist)>1:
+        mid = len(alist)//2
+        lefthalf = alist[:mid]
+        righthalf = alist[mid:]
+        mergeSort(lefthalf,s)
+        mergeSort(righthalf,s)
+
+        i=0
+        j=0
+        k=0
+        while i < len(lefthalf) and j < len(righthalf):
+            if lefthalf[i] < righthalf[j]:
+                alist[k]=lefthalf[i]
+                s+=1
+                i=i+1
+            else:
+                alist[k]=righthalf[j]
+                s+=1
+                j=j+1
+            k=k+1
+
+
+        while i < len(lefthalf):
+            alist[k]=lefthalf[i]
+            i=i+1
+            k=k+1
+            s=s+1
+
+        while j < len(righthalf):
+            alist[k]=righthalf[j]
+            j=j+1
+            k=k+1
+            s=s+1
+    print s
+
+alist = [4,3,2]
+print mergeSort(alist,0)
+#print(alist)
 
 
 
